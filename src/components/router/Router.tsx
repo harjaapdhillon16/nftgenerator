@@ -6,14 +6,14 @@ import LoggedIn from '../screens/LoggedIn';
 import CallBack from '../screens/Callback';
 
 export const Router = () => {
-  const [profile, setProfile] = useState<any>(null);
+  const [unstoppableProfile, setUnstoppableProfile] = useState<any>(null);
 
   const fetchUser = () => {
     uauth.user().then((data) => {
       if (data) {
-        setProfile(data);
+        setUnstoppableProfile(data);
       } else {
-        setProfile(false);
+        setUnstoppableProfile(false);
       }
     });
   };
@@ -38,7 +38,7 @@ export const Router = () => {
             <LoggedIn />
           </Route>
 
-          {profile ? <Redirect to="/loggedIn" /> : <Redirect to="/" />}
+          {unstoppableProfile ? <Redirect to="/loggedIn" /> : <Redirect to="/" />}
         </Switch>
       </BrowserRouter>
     </>
