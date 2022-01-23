@@ -12,4 +12,4 @@ harjaapdhillon.hrizn@gmail.com
 https://nft-generator-web3.netlify.app/
 # HOW TO USE THE APP LOCALLY 
 GO TO src/utils/unstoppableDomain.ts file 
-AT LINE 11 REPLACE PRODUCTION_CREDENTIALS WITH DEV CREDENTIALS
+AT LINE 11 REPLACE productionCredentials WITH DEV CREDENTIALS
