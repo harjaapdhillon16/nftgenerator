@@ -1,13 +1,5 @@
 import UAuth from '@uauth/js';
 
-// eslint-disable-next-line no-unused-vars
-const developmentCredentials = {
-  clientID: 'qxRaA/ILJHo5WGXbo6NiWOI+FBModAIKVToTBGONEtI=',
-  clientSecret: 'MSk1Lx/iddaggFHSNoBNCfRn4vwblWkvmVivxFYpyww=',
-  scope: 'openid email wallet',
-  redirectUri: 'http://localhost:3000/callback',
-  postLogoutRedirectUri: 'http://localhost:3000/',
-};
 const productionCredentials = {
   clientID: 'l+7dDGQRHQTUN05VPbqNUx9bOLEdAOmYeIrrKXQvPFA=',
   clientSecret: 'fqKxi/8c4AcBicVnURoBFYLPwA1XdOMF36CnXJgEaJg=',
