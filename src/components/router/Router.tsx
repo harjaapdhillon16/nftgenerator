@@ -6,23 +6,45 @@ import LoggedIn from '../screens/LoggedIn';
 import CallBack from '../screens/Callback';
 
 export const Router = () => {
-  const [unstoppableProfile, setUnstoppableProfile] = useState<any>(null);
+  const [unstoppableProfile, setUnstoppableProfile] = useState<any>({
+    loading: true,
+    unstoppableData: null,
+  });
 
   const fetchUser = () => {
-    uauth.user().then((data) => {
-      if (data) {
-        setUnstoppableProfile(data);
-      } else {
-        setUnstoppableProfile(false);
-      }
+    setUnstoppableProfile({
+      loading: true,
+      unstoppableData: null,
     });
+    uauth
+      .user()
+      .then((data) => {
+        console.log(data, 'dataaa');
+        if (data) {
+          setUnstoppableProfile({
+            loading: false,
+            unstoppableData: data,
+          });
+        } else {
+          setUnstoppableProfile({
+            loading: false,
+            unstoppableData: null,
+          });
+        }
+      })
+      .catch(() => {
+        setUnstoppableProfile({
+          loading: false,
+          unstoppableData: null,
+        });
+      });
   };
 
   useEffect(() => {
     fetchUser();
   }, []);
-
-  return (
+  const { loading, unstoppableData } = unstoppableProfile;
+  return !loading ? (
     <>
       <BrowserRouter>
         <Switch>
@@ -37,10 +59,13 @@ export const Router = () => {
           <Route exact path="/loggedIn">
             <LoggedIn />
           </Route>
-
-          {unstoppableProfile ? <Redirect to="/loggedIn" /> : <Redirect to="/" />}
+          <Route path="*" render={() => (unstoppableData ? <Redirect to="/loggedIn" /> : <Redirect to="/" />)} />
         </Switch>
       </BrowserRouter>
     </>
+  ) : (
+    <div className="h-screen w-screen pt-20 bg-black text-center">
+      <h1 className="animate-bounce">Loading</h1>
+    </div>
   );
 };

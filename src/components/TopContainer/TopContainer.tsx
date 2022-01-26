@@ -29,7 +29,6 @@ export const Container = ({ title, description, children }: Props) => {
   useEffect(() => {
     fetchUser();
   }, []);
-  console.log(profile)
   return (
     <div>
       <Helmet>

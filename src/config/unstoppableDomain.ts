@@ -8,4 +8,12 @@ const productionCredentials = {
   postLogoutRedirectUri: 'https://nft-generator-web3.netlify.app/',
 };
 
-export const uauth = new UAuth(productionCredentials);
+const developmentCredentials = {
+  clientID: 'qxRaA/ILJHo5WGXbo6NiWOI+FBModAIKVToTBGONEtI=',
+  clientSecret: 'MSk1Lx/iddaggFHSNoBNCfRn4vwblWkvmVivxFYpyww=',
+  scope: 'openid email wallet',
+  redirectUri: 'http://localhost:3000/callback',
+  postLogoutRedirectUri: 'http://localhost:3000/',
+};
+
+export const uauth = new UAuth(developmentCredentials);
