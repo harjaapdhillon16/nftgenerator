@@ -1,4 +1,4 @@
-# ⚡ A hobby project with integrated DAPP Login
+# ⚡ A project with integrated DAPP Login
 Project Name : RANDOM NFT GENERATOR
 # Working code in a public repo or PR to a public repo
 https://github.com/harjaapdhillon16/nftgenerator
